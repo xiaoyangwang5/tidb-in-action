@@ -7,7 +7,7 @@
 可能此时的 TiDB 集群在该时间段内响应延时会大幅度增加，甚至会出现大量请求超时并且伴随大量告警出现。
 
 # Server is Busy 的影响
-Server is Busy 本质上就是 tikv-server 繁忙，暂时无法对该请求做出响应，所以此时从TiDB集群到业务都会受到影响。以下从两个角度观察这个问题。
+Server is Busy 本质上就是 tikv-server 繁忙，暂时无法对该请求做出响应，所以此时从 TiDB 集群到业务都会受到影响。以下从两个角度观察这个问题。
 
 ## 运维角度
 1. 集群性能迅速下降，现象可以从 TiDB 监控 - Query Summary - Duration 明显看到。
@@ -17,7 +17,7 @@ Server is Busy 本质上就是 tikv-server 繁忙，暂时无法对该请求做�
 ## 业务角度
 1. 业务访问数据库响应耗时大幅度增加， 例如： 5ms -> 5s。
 2. 业务告警，数据库访问超时，例如： TimeoutException。
-3. 部分请求访问DB不响应。
+3. 部分请求访问 DB 不响应。
 
 每次出现 Server is Busy 对于运维以及业务都是比较紧张，那么接下来分析一下 Server is busy 的原因。
 
